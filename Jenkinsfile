@@ -2,8 +2,10 @@ pipeline {
 	agent any
 	stages {
 		stage('Setup') {
-			script {
-				LATEST_COMMIT = sh (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)
+			steps {
+				script {
+					LATEST_COMMIT = sh (script: "git log -n 1 --pretty=format:'%H'", returnStdout: true)
+				}
 			}
 		}
 		stage('Build') {
